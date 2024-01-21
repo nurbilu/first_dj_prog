@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.1.2/dist/axios.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="prods">products...</div>
+        <script>
+            const getData = async () => {
+                const SERVER = "http://127.0.0.1:8000/products";
+                res = await axios.get(SERVER);
+                console.log(res.data);
+                prods.innerHTML = res.data.map(prd => `<div>${prd.desc}, ${prd.price}
+                    <button onclick="delData(${prd.id})">del</button></div>`).join("");
+            };
+    
+            const delData = async (id) => {
+                console.log(id);
+            };
+    
+            getData()
+        </script>
+    </body>
+    </html>
+    
